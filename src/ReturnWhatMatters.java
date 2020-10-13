@@ -1,38 +1,26 @@
-import java.io.BufferedReader;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.net.URLConnection;
 
-
+/**
+ * A simple example, used on the jsoup website.
+ */
 public class ReturnWhatMatters {
-
     public static void main(String[] args) throws IOException {
+        Document doc = Jsoup.connect("http://en.wikipedia.org/").get();
+        log(doc.title());
 
-        // Make a URL to the web page
-        URL url = new URL("https://www.apple.com/legal/internet-services/itunes/us/terms.html");
-
-        // Get the input stream through URL Connection
-        URLConnection con = url.openConnection();
-        InputStream is =con.getInputStream();
-
-        // Once you have the Input Stream, it's just plain old Java IO stuff.
-
-        // For this case, since you are interested in getting plain-text web page
-        // I'll use a reader and output the text content to System.out.
-
-        // For binary content, it's better to directly read the bytes from stream and write
-        // to the target file.
-
-
-        BufferedReader br = new BufferedReader(new InputStreamReader(is));
-
-        String line = null;
-
-        // read each line and write to System.out
-        while ((line = br.readLine()) != null) {
-            System.out.println(line);
+        Elements newsHeadlines = doc.select("#mp-itn b a");
+        for (Element headline : newsHeadlines) {
+            log("%s\n\t%s", headline.attr("title"), headline.absUrl("href"));
         }
+    }
+
+    private static void log(String msg, String... vals) {
+        System.out.println(String.format(msg, vals));
     }
 }

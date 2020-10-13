@@ -1,3 +1,6 @@
 [submodule "jsoup"]
 	path = jsoup
 	url = https://github.com/jhy/jsoup.git
+[submodule "src/jsoup"]
+	path = src/jsoup
+	url = https://github.com/jhy/jsoup.git
