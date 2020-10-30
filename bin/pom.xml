@@ -7,13 +7,6 @@
  <name>first-maven-app</name>
  <url>http://maven.apache.org</url>
  <dependencies>
-
-   <dependency>
-  <!-- jsoup HTML parser library @ https://jsoup.org/ -->
-  <groupId>org.jsoup</groupId>
-  <artifactId>jsoup</artifactId>
-  <version>1.13.1</version>
-</dependency>
    <dependency>
      <groupId>junit</groupId>
      <artifactId>junit</artifactId>
