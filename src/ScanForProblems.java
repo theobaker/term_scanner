@@ -21,5 +21,6 @@ public class ScanForProblems {
 		//I think there have to be some specific things to scan for only in all-caps sections; American Law says that important things have to be conspicuously labelled, and comapnies respond by having HUGE LONG LINES OF ALL CAPS TEXT
 		//definitely need to have a potentially questionable category for things like sections beginning with "limitations" and "responsibilities"
 
+		AdFinder.findAdAgreements();
 	}
 }
