@@ -53,8 +53,27 @@ public class ScanForProblems {
 
 		//scan for: information clauses (where information goes), often characterized by "Sharing of Information"
 		//scan for: "Third Parties and affiliations"
-		//scan for: "Opt out"
+		//scan for: "Opt out"- orange for all contract leaving things
+		TextSelection[] information = document.findAllString("opt out", false, true);
+		
+		for (TextSelection selection: information) {
+			selection.getAsOneRange().getCharacterFormat().setHighlightColor(Color.ORANGE);
+
+		}
 		//scan for: section title: "arbitration"
+		TextSelection[] information = document.findAllString("arbitration", false, true);
+		
+		for (TextSelection selection: information) {
+			selection.getAsOneRange().getCharacterFormat().setHighlightColor(Color.ORANGE);
+
+		}
+		//scan for "indemnify"- used for sketchy waivers
+		TextSelection[] information = document.findAllString("indemnify", false, true);
+		
+		for (TextSelection selection: information) {
+			selection.getAsOneRange().getCharacterFormat().setHighlightColor(Color.ORANGE);
+
+		}
 		//scan for: sections written in all caps (these tend to be important, regardless of their contents)
 		String str = "This is an example string. HERE IS THE IMPORTANT SECTION OF TEXT. There may also be SMALL capitalized sections.";
 		String[] substrings = str.split("[^A-Z]+");//get all capitalized substrings
