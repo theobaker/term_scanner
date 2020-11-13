@@ -1,0 +1,5 @@
+// This is the configuration file so that a lot of the "hard" codes could be imported here, which makes it user-friendly for the non-programmers.
+
+String=This is an example string. HERE IS THE IMPORTANT SECTION OF TEXT. There may also be SMALL capitalized sections.
+Website=http://en.wikipedia.org/
+Document=Input.docx
