@@ -5,12 +5,14 @@ import com.spire.doc.documents.TextSelection;
 
 
 public class ScanForProblems {
-	public static void main(String[] args) {
+	public static void scanEULA(String fileName) {
 
-
-
-		//Load Word document
-		Document document = new Document("/Users/theobaker/Desktop/Input.docx");
+		//Load Word document with text of contract from provided name
+		Document document = new Document();
+		
+		document.loadFromFile(fileName);
+		
+		
 		//Find all occasions of the word advertisement
 		TextSelection[] fullWord = document.findAllString("advertisement", false, true);
 		TextSelection[] shortening = document.findAllString("ad", false, true);
@@ -54,23 +56,23 @@ public class ScanForProblems {
 		//scan for: information clauses (where information goes), often characterized by "Sharing of Information"
 		//scan for: "Third Parties and affiliations"
 		//scan for: "Opt out"- orange for all contract leaving things
-		TextSelection[] information = document.findAllString("opt out", false, true);
+		TextSelection[] optOut = document.findAllString("opt out", false, true);
 		
-		for (TextSelection selection: information) {
+		for (TextSelection selection: optOut) {
 			selection.getAsOneRange().getCharacterFormat().setHighlightColor(Color.ORANGE);
 
 		}
 		//scan for: section title: "arbitration"
-		TextSelection[] information = document.findAllString("arbitration", false, true);
+		TextSelection[] arbitration = document.findAllString("arbitration", false, true);
 		
-		for (TextSelection selection: information) {
+		for (TextSelection selection: arbitration) {
 			selection.getAsOneRange().getCharacterFormat().setHighlightColor(Color.ORANGE);
 
 		}
 		//scan for "indemnify"- used for sketchy waivers
-		TextSelection[] information = document.findAllString("indemnify", false, true);
+		TextSelection[] indemnify = document.findAllString("indemnify", false, true);
 		
-		for (TextSelection selection: information) {
+		for (TextSelection selection: indemnify) {
 			selection.getAsOneRange().getCharacterFormat().setHighlightColor(Color.ORANGE);
 
 		}
