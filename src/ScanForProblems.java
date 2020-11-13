@@ -1,8 +1,8 @@
 import java.awt.Color;
-
 import com.spire.doc.Document;
 import com.spire.doc.FileFormat;
 import com.spire.doc.documents.TextSelection;
+
 
 public class ScanForProblems {
 	public static void main(String[] args) {
@@ -10,7 +10,7 @@ public class ScanForProblems {
 
 
 		//Load Word document
-		Document document = new Document("Input.docx");
+		Document document = new Document("/Users/theobaker/Desktop/Input.docx");
 		//Find all occasions of the word advertisement
 		TextSelection[] fullWord = document.findAllString("advertisement", false, true);
 		TextSelection[] shortening = document.findAllString("ad", false, true);
