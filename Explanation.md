@@ -7,7 +7,7 @@
 ### What do the annotation colors mean?
 
 - Yellow: advertising clauses
-- Red: information clauses
+- Red: information clauses and IP
 - Blue: third party agreements/affiliations
-- Orange: opting out, arbitration,  liability, and indemnification
+- Orange: opting out, arbitration,  liability, termination, fines, and indemnification
 - Cyan: disclaimer of other content

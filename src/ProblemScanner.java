@@ -39,6 +39,16 @@ public class ProblemScanner {
 
 			}
 		}
+		
+		//scan for IP and also put in red
+		TextSelection[] ip = document.findAllString("intellectual property", false, true);
+
+		if (ip != null) {
+			for (TextSelection selection: ip) {
+				selection.getAsOneRange().getCharacterFormat().setHighlightColor(Color.RED);
+
+			}
+		}
 
 		// find all third party agreements and highlight in blue
 		TextSelection[] thirdParty = document.findAllString("third party", false, true);
@@ -69,11 +79,18 @@ public class ProblemScanner {
 
 		//scan for: "Opt out"- orange for all contract leaving things
 		TextSelection[] optOut = document.findAllString("opt out", false, true);
+		TextSelection[] termination = document.findAllString("termination", false, true);
 
 		if (optOut != null) {
 			for (TextSelection selection: optOut) {
 				selection.getAsOneRange().getCharacterFormat().setHighlightColor(Color.ORANGE);
 
+			}
+		}
+		
+		if (termination != null) {
+			for (TextSelection selection: termination) {
+				selection.getAsOneRange().getCharacterFormat().setHighlightColor(Color.ORANGE);
 			}
 		}
 
@@ -104,6 +121,17 @@ public class ProblemScanner {
 			}
 		}
 		
+		//scan for fines
+		//also goes in orange
+		TextSelection[] fines = document.findAllString("fine", false, true);
+
+		if (fines != null) {
+			for (TextSelection selection: fines) {
+				selection.getAsOneRange().getCharacterFormat().setHighlightColor(Color.ORANGE);
+
+			}
+		}
+		
 		//scan for: "Disclaimer of other content" (often used to slip in things which aren't part of what the user expects)
 		//highlight in cyan
 		TextSelection[] disclaimer = document.findAllString("Disclaimer of other content", false, true);
@@ -114,6 +142,7 @@ public class ProblemScanner {
 
 			}
 		}
+		
 		
 		
 		//scan for: sections written in all caps (these tend to be important, regardless of their contents)
