@@ -1,6 +1,6 @@
 import com.spire.doc.Document;
 
-public class CompareVersions {
+public class VersionComparison {
 	
 	
 	public static void compareVersions(String version1Name, String version2Name) {

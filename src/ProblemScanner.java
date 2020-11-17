@@ -4,7 +4,7 @@ import com.spire.doc.FileFormat;
 import com.spire.doc.documents.TextSelection;
 
 
-public class ScanForProblems {
+public class ProblemScanner {
 	public static String scanEULA(String fileName) {
 
 		//Load Word document with text of contract from provided name
