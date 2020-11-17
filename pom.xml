@@ -3,6 +3,13 @@
   <groupId>term_scanner</groupId>
   <artifactId>term_scanner</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <distributionManagement>
+    <repository>
+      <id>internal.repo</id>
+      <name>MyCo Internal Repository</name>
+      <url>Host to Company Repository</url>
+    </repository>
+  </distributionManagement>
   <repositories>
   	<repository>
   		<id>com..e-iceblue</id>
