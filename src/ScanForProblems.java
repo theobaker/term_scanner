@@ -5,10 +5,6 @@ import com.spire.doc.documents.TextSelection;
 
 
 public class ScanForProblems {
-	public static void main(String[] args) {
-		String hey = scanEULA("/Users/theobaker/Desktop/Input.docx");
-		System.out.println(hey);
-	}
 	public static String scanEULA(String fileName) {
 
 		//Load Word document with text of contract from provided name
@@ -107,6 +103,19 @@ public class ScanForProblems {
 
 			}
 		}
+		
+		//scan for: "Disclaimer of other content" (often used to slip in things which aren't part of what the user expects)
+		//highlight in cyan
+		TextSelection[] disclaimer = document.findAllString("Disclaimer of other content", false, true);
+
+		if (disclaimer != null) {
+			for (TextSelection selection: disclaimer) {
+				selection.getAsOneRange().getCharacterFormat().setHighlightColor(Color.CYAN);
+
+			}
+		}
+		
+		
 		//scan for: sections written in all caps (these tend to be important, regardless of their contents)
 
 		// use Spire.doc to get all the text of the document into a string
@@ -118,13 +127,12 @@ public class ScanForProblems {
 
 		for (String s : substrings){
 			if (s.length() > longestLength){
-				longestLength = s.length();
 				longestCapsSection = s;
 			}
 		}
 
 
-		//scan for: "Disclaimer of other content" (often used to slip in things which aren't part of what the user expects)
+		
 		//I think there have to be some specific things to scan for only in all-caps sections; American Law says that important things have to be conspicuously labelled, and comapnies respond by having HUGE LONG LINES OF ALL CAPS TEXT
 		//definitely need to have a potentially questionable category for things like sections beginning with "limitations" and "responsibilities"
 
