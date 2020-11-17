@@ -3,14 +3,24 @@
   <groupId>term_scanner</groupId>
   <artifactId>term_scanner</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <repositories>
+  	<repository>
+  		<id>com..e-iceblue</id>
+  		<name>e-iceblue</name>
+  		<url>http://repo.e-iceblue.com/nexus/content/groups/public/</url>
+  	</repository>
+  </repositories>
   <dependencies>
   <dependency>
     <groupId>jakarta.xml.bind</groupId>
     <artifactId>jakarta.xml.bind-api</artifactId>
     <version>2.3.2</version>
 </dependency>
-
-<!-- Runtime, com.sun.xml.bind module -->
+<dependency>
+	<groupId>e-iceblue</groupId>
+	<artifactId>spire.doc.free</artifactId>
+	<version>3.9.0</version>
+</dependency>
 <dependency>
     <groupId>org.glassfish.jaxb</groupId>
     <artifactId>jaxb-runtime</artifactId>
