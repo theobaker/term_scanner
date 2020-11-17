@@ -20,5 +20,5 @@
 *.tar.gz
 *.rar
 
-
+/target/
 *AnnotatedEULA.docx
