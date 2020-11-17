@@ -81,11 +81,19 @@ public class ScanForProblems {
 			}
 		}
 
-		//scan for: section title: "arbitration"
+		//scan for: arbitration and liability
 		TextSelection[] arbitration = document.findAllString("arbitration", false, true);
+		TextSelection[] liability = document.findAllString("liability", false, true);
 
 		if (arbitration != null) {
 			for (TextSelection selection: arbitration) {
+				selection.getAsOneRange().getCharacterFormat().setHighlightColor(Color.ORANGE);
+
+			}
+		}
+		
+		if (liability != null) {
+			for (TextSelection selection: liability) {
 				selection.getAsOneRange().getCharacterFormat().setHighlightColor(Color.ORANGE);
 
 			}
