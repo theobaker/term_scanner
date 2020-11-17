@@ -21,13 +21,13 @@ public class ScanForProblems {
 		TextSelection[] shortening = document.findAllString("ad", false, true);
 
 		//Set Highlight color for ads as Yellow
-		if (fullWord.length > 0) {
+		if (fullWord != null) {
 			for (TextSelection selection : fullWord) {
 				selection.getAsOneRange().getCharacterFormat().setHighlightColor(Color.YELLOW);
 			}
 		}
 
-		if (shortening.length > 0) {
+		if (shortening != null) {
 			for (TextSelection selection: shortening) {
 				selection.getAsOneRange().getCharacterFormat().setHighlightColor(Color.YELLOW);
 
@@ -37,7 +37,7 @@ public class ScanForProblems {
 		// find all information clauses and highlight in red
 		TextSelection[] information = document.findAllString("information", false, true);
 
-		if (information.length > 0) {
+		if (information != null) {
 			for (TextSelection selection: information) {
 				selection.getAsOneRange().getCharacterFormat().setHighlightColor(Color.RED);
 
@@ -49,21 +49,21 @@ public class ScanForProblems {
 		TextSelection[] thirdParties = document.findAllString("third parties", false, true);
 		TextSelection[] affiliation = document.findAllString("affiliation", false, true);
 
-		if (thirdParty.length > 0) {
+		if (thirdParty != null) {
 			for (TextSelection selection: thirdParty) {
 				selection.getAsOneRange().getCharacterFormat().setHighlightColor(Color.BLUE);
 
 			}
 		}
 
-		if (thirdParties.length > 0) {
+		if (thirdParties != null) {
 			for (TextSelection selection: thirdParties) {
 				selection.getAsOneRange().getCharacterFormat().setHighlightColor(Color.BLUE);
 
 			}
 		}
 
-		if (affiliation.length > 0) {
+		if (affiliation != null) {
 			for (TextSelection selection: affiliation) {
 				selection.getAsOneRange().getCharacterFormat().setHighlightColor(Color.BLUE);
 
@@ -74,7 +74,7 @@ public class ScanForProblems {
 		//scan for: "Opt out"- orange for all contract leaving things
 		TextSelection[] optOut = document.findAllString("opt out", false, true);
 
-		if (optOut.length > 0) {
+		if (optOut != null) {
 			for (TextSelection selection: optOut) {
 				selection.getAsOneRange().getCharacterFormat().setHighlightColor(Color.ORANGE);
 
@@ -84,7 +84,7 @@ public class ScanForProblems {
 		//scan for: section title: "arbitration"
 		TextSelection[] arbitration = document.findAllString("arbitration", false, true);
 
-		if (arbitration.length > 0) {
+		if (arbitration != null) {
 			for (TextSelection selection: arbitration) {
 				selection.getAsOneRange().getCharacterFormat().setHighlightColor(Color.ORANGE);
 
@@ -93,7 +93,7 @@ public class ScanForProblems {
 		//scan for "indemnify"- used for sketchy waivers
 		TextSelection[] indemnify = document.findAllString("indemnify", false, true);
 
-		if (indemnify.length > 0) {
+		if (indemnify != null) {
 			for (TextSelection selection: indemnify) {
 				selection.getAsOneRange().getCharacterFormat().setHighlightColor(Color.ORANGE);
 
