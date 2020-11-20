@@ -3,11 +3,19 @@
   <groupId>term_scanner</groupId>
   <artifactId>term_scanner</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <properties>
+  	<github.global.server>github</github.global.server>
+</properties>
   <distributionManagement>
-    <repository>
+   <!--  <repository>
       <id>internal.repo</id>
       <name>MyCo Internal Repository</name>
       <url>Host to Company Repository</url>
+    </repository> -->
+    <repository>
+      <id>github</id>
+      <name>GitHub theobaker Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/theobaker/term_scanner</url>
     </repository>
   </distributionManagement>
   <repositories>
@@ -36,6 +44,16 @@
   </dependencies>
   <build>
     <sourceDirectory>src</sourceDirectory>
+      <!-- To define the plugin version in your parent POM -->
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>3.0.0-M1</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -44,6 +62,11 @@
           <release>11</release>
         </configuration>
       </plugin>
+       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-install-plugin</artifactId>
+        </plugin>
     </plugins>
   </build>
+
 </project>
